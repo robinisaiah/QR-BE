@@ -1,0 +1,158 @@
+{
+    "info": {
+        "name": "StudentTraining API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Get All Student Trainings",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/api/student-trainings",
+                    "host": ["{{base_url}}"],
+                    "path": ["api", "student-trainings"]
+                }
+            }
+        },
+        {
+            "name": "Get Single Student Training",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/api/student-trainings/:id",
+                    "host": ["{{base_url}}"],
+                    "path": ["api", "student-trainings", ":id"],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "1"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Create Student Training",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"student_id\": 1,\n    \"training_schedule_id\": 2,\n    \"status\": \"in\"\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/api/student-trainings",
+                    "host": ["{{base_url}}"],
+                    "path": ["api", "student-trainings"]
+                }
+            }
+        },
+        {
+            "name": "Update Student Training",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"status\": \"out\"\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/api/student-trainings/:id",
+                    "host": ["{{base_url}}"],
+                    "path": ["api", "student-trainings", ":id"],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "1"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Delete Student Training",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/api/student-trainings/:id",
+                    "host": ["{{base_url}}"],
+                    "path": ["api", "student-trainings", ":id"],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "1"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Opt-In to Training",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"student_id\": 1\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/api/training-schedules/:scheduleId/opt-in",
+                    "host": ["{{base_url}}"],
+                    "path": ["api", "training-schedules", ":scheduleId", "opt-in"],
+                    "variable": [
+                        {
+                            "key": "scheduleId",
+                            "value": "1"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Opt-Out of Training",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"student_id\": 1\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/api/training-schedules/:scheduleId/opt-out",
+                    "host": ["{{base_url}}"],
+                    "path": ["api", "training-schedules", ":scheduleId", "opt-out"],
+                    "variable": [
+                        {
+                            "key": "scheduleId",
+                            "value": "1"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

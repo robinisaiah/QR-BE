@@ -1,0 +1,112 @@
+{
+  "info": {
+    "name": "Training Schedules API",
+    "description": "Postman collection for CRUD operations on training_schedules table",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Training Schedules",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/training-schedules",
+          "host": ["http://localhost:8000"],
+          "path": ["api", "training-schedules"]
+        }
+      }
+    },
+    {
+      "name": "Create Training Schedule",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Advanced PHP\",\n  \"start_date\": \"2025-01-10\",\n  \"end_date\": \"2025-01-20\",\n  \"course_id\": 1\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/training-schedules",
+          "host": ["http://localhost:8000"],
+          "path": ["api", "training-schedules"]
+        }
+      }
+    },
+    {
+      "name": "Get Single Training Schedule",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/training-schedules/:id",
+          "host": ["http://localhost:8000"],
+          "path": ["api", "training-schedules", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update Training Schedule",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Updated PHP Course\",\n  \"start_date\": \"2025-02-01\",\n  \"end_date\": \"2025-02-10\",\n  \"course_id\": 2\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/training-schedules/:id",
+          "host": ["http://localhost:8000"],
+          "path": ["api", "training-schedules", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Delete Training Schedule",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/training-schedules/:id",
+          "host": ["http://localhost:8000"],
+          "path": ["api", "training-schedules", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "string"
+    }
+  ]
+}
