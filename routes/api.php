@@ -25,6 +25,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     ]);
 });
 
+
+Route::options('{any}', function () {
+    return response('', 204)
+        ->header('Access-Control-Allow-Origin', 'http://localhost:3000')
+        ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+        ->header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+})->where('any', '.*');
+
+
 Route::middleware(['auth:sanctum'])->group(function () {
     
 Route::get('courses', [CourseController::class, 'index']);
@@ -32,11 +41,11 @@ Route::get('courses/{id}', [CourseController::class, 'show']);
 Route::post('courses', [CourseController::class, 'store']); 
 Route::put('courses/{id}', [CourseController::class, 'update']); 
 Route::delete('courses/{id}', [CourseController::class, 'destroy']);
-Route::get('students', [CourseController::class, 'index']);
-Route::get('students/{id}', [CourseController::class, 'show']); 
-Route::post('students', [CourseController::class, 'store']); 
-Route::put('students/{id}', [CourseController::class, 'update']); 
-Route::delete('students/{id}', [CourseController::class, 'destroy']);
+Route::get('students', [StudentController::class, 'index']);
+Route::get('students/{id}', [StudentController::class, 'show']); 
+Route::post('students', [StudentController::class, 'store']); 
+Route::put('students/{id}', [StudentController::class, 'update']); 
+Route::delete('students/{id}', [StudentController::class, 'destroy']);
 Route::get('training-schedules', [TrainingScheduleController::class, 'index']);
 Route::get('training-schedules/{id}', [TrainingScheduleController::class, 'show']); 
 Route::post('training-schedules', [TrainingScheduleController::class, 'store']); 
